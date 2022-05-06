@@ -6,6 +6,7 @@ import ru from './pics/ru.jpg';
 
 import './App.css';
 import { useTranslation, Trans } from 'react-i18next';
+import Button from './Button';
 
 const lngs = {
   en: { nativeName: 'English' },
@@ -29,17 +30,7 @@ function App() {
         />
         <div>
           {Object.keys(lngs).map((lng) => (
-            <button
-              key={lng}
-              style={{
-                backgroundColor: 'gold',
-                fontWeight: i18n.resolvedLanguage === lng ? 'bold' : 'normal',
-              }}
-              type="submit"
-              onClick={() => i18n.changeLanguage(lng)}
-            >
-              {lngs[lng].nativeName}
-            </button>
+            <Button key={lng} lngs={lngs} lng={lng} i18n={i18n}></Button>
           ))}
         </div>
         <p>
